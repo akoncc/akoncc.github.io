@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://akoncc.github.io/"/>
-  <updated>2020-05-16T06:31:17.739Z</updated>
+  <updated>2020-05-16T07:41:45.588Z</updated>
   <id>https://akoncc.github.io/</id>
   
   <author>
@@ -17,16 +17,29 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ELK 介紹</title>
+    <title>ELK-Stack 介紹</title>
     <link href="https://akoncc.github.io/2020/05/16/elk-introduce/"/>
     <id>https://akoncc.github.io/2020/05/16/elk-introduce/</id>
     <published>2020-05-16T06:31:03.000Z</published>
-    <updated>2020-05-16T06:31:17.739Z</updated>
+    <updated>2020-05-16T07:41:45.588Z</updated>
+    
+    <content type="html"><![CDATA[<p>嗯，用了許久的 <code>ELK</code>，當然除了使用以外還要會建立</p><p>為了免得之後忘記這陣子的研究，來寫寫一系列的紀錄吧</p><h2 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h2><p><img src="https://miro.medium.com/max/469/1*j3ED3UE5PyfbLxQ7Vg-2Jw.png" alt="ELK-Stack"></p><p>ELK Stack 是由 <code>Elasticsearch</code>、<code>Logstash</code>、<code>Kibana</code> 以及 <code>Beats</code> 所組成的 Log 蒐集、查詢、分析工具。</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># log 資料庫，可以做到全文索引跟搜尋、聚合 log的功能，速度超快</span></span><br><span class="line">E：Elasticsearch</span><br><span class="line"><span class="comment"># log 格式化，java 製作，可以用各種內建的工具將每一筆 log 依據不同需求格式化</span></span><br><span class="line">L：Logstash</span><br><span class="line"><span class="comment"># log 可視化介面，具有查詢(使用 Apache Lucene )、圖形化、監控、告警、GEO 等功能</span></span><br><span class="line">K：Kibana</span><br><span class="line"><span class="comment"># Beat家族</span></span><br><span class="line"><span class="comment"># Filebeat：log 蒐集器，go lang 撰寫，速度潮快</span></span><br><span class="line"><span class="comment"># Winlogbeat：蒐集 Windows 事件</span></span><br><span class="line"><span class="comment"># Metricbeat：蒐集量測資訊</span></span><br><span class="line">Beats：Filebeat、Winlogbeat、Metricbeat 等</span><br></pre></td></tr></table></figure><p>可以在不改變原系統架構的情況下，架設 ELK 蒐集、分析、查詢 Log，簡化過去繁鎖、效率差且有可能影響應用程式環境的查 Log 工作。</p><h3 id="為何選用-ELK"><a href="#為何選用-ELK" class="headerlink" title="為何選用 ELK"></a>為何選用 ELK</h3><p>選擇工具/第三方套件，總要有一些理由/原因，甚至是比較</p><blockquote><p>其實做每件事情都是一樣，事出必有因</p></blockquote><ol><li>穩定，官方更新速度快</li><li>豐富的生態系，不管是 <code>input</code> 或 <code>output</code> 都有很多的第三方可使用</li><li>官方文件足夠多以及好理解</li><li>網路資源多/實體資源多(etc. 書)</li><li>安裝容易(尤其是利用 <code>docker</code>)</li><li>查詢 log 容易上手</li><li>只有用過這套(主因或許是這個 XDDDDD)</li></ol><h3 id="官方連結"><a href="#官方連結" class="headerlink" title="官方連結"></a>官方連結</h3><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/elasticsearch-intro.html" target="_blank" rel="noopener">Elasticsearch 官網</a></p><p><a href="https://www.elastic.co/guide/en/logstash/current/introduction.html" target="_blank" rel="noopener">Logstash 官網</a></p><p><a href="https://www.elastic.co/guide/en/kibana/current/index.html" target="_blank" rel="noopener">Kibana 官網</a></p><p><a href="https://www.elastic.co/guide/en/beats/libbeat/current/index.html" target="_blank" rel="noopener">Beats 官網</a></p><h2 id="ELK-架構選用"><a href="#ELK-架構選用" class="headerlink" title="ELK 架構選用"></a>ELK 架構選用</h2><ul><li>ELK 使用的版本是 <code>7.6.2</code></li><li>Redis 使用的版本是 <code>5.0.0</code></li></ul><p>除了 <code>Elasticsearch</code>、<code>Logstash</code>、<code>Kibana</code> 之外，<code>beats</code> 的部分選用了 <code>Filebeat</code>，中介層的緩存以及HA選用 <code>Redis</code>。</p><blockquote><p>中介層的緩存以及 HA 方案也能選用 <code>Kafka</code></p></blockquote><p>記得要讓 <code>Redis</code> 單獨給 <code>ELK</code> 使用，別跟其他用途混用了！！！</p><h3 id="Filebeat"><a href="#Filebeat" class="headerlink" title="Filebeat"></a>Filebeat</h3><p>用 <code>Golang</code> 製作，效能很強，用途是爬 log 用的 beat<br>目前是選擇爬本地端的 Log 檔，然後輸出到 <code>Redis</code> ( 其實他也能獲取很多種套件的 log)</p><ul><li>詳情請看：<a href="https://www.elastic.co/guide/en/beats/filebeat/7.5/configuring-howto-filebeat.html" target="_blank" rel="noopener">Filebeat 設定</a></li></ul><h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><ul><li><code>NoSQL</code> 資料庫</li><li>讀寫的速度很快</li><li>可叢集</li><li>可以當快取使用也能將資料持久化</li><li>有資料備份機制</li><li>資料還原發生誤差的機率很低</li></ul><p>會選用 <code>Redis</code> 的原因是：</p><ol><li><code>Logstash</code> 本身效能並不好</li><li><code>Logstash</code> 資料備份能力低</li><li>萬一 <code>Logstash</code> 掛了，原本暫存在 <code>Logstash</code> 的 log 會遺失</li></ol><p>所以，利用 <code>Redis</code> 的優點，並且當第一層緩衝，減少 <code>Logstash</code> 的壓力</p><blockquote><p>這邊其實也能使用 <code>Filebeat</code> 直接將 log 寫到 <code>Elasticsearch</code> 內，<br>但要改動較多的程式碼，所以先以比較間單的方式建構</p></blockquote><h3 id="運作方式簡介"><a href="#運作方式簡介" class="headerlink" title="運作方式簡介"></a>運作方式簡介</h3><p>各自的詳細運作原理另外再寫，因為篇幅會太長，所以這裡先簡單介紹</p><p><img src="https://aboullaite.me/content/images/2017/09/shecma.jpg" alt="架構"><br>根據上圖</p><ul><li><p>首先是 <code>Filebeat</code>：</p><ol><li>根據設定內的路徑/檔案建立 N個 <code>Harvester</code>，目的是蒐集檔案內的 log</li><li>根據設定內的 output(這裡是使用 <code>Redis</code>)，將 log 用 <code>RPUSH</code>(預設) 寫入 <code>Redis</code><blockquote><p>所以不要將 <code>Redis</code> 的 <code>RPUSH</code>、<code>BLPOP</code> 命令更名了</p></blockquote></li></ol></li></ul><p>再來是 <code>Redis</code>：</p><ol><li>要記得做持久化，<code>aof</code> 或 <code>rdb</code> 或 <code>兩者</code> 都可，可以根據 log 用途來決定</li><li>要注意的是，有可能會因為 <code>Logstash</code> 獲取 log 的速度慢導致 <code>Redis 記憶體</code> 持續上升</li></ol><ul><li><p>往下看 <code>Logstash</code>：</p><ol><li>主要區分幾個部分，執行順序由上往下：<ol><li><code>inputs</code>：資料輸入來源</li><li><code>filter</code>：根據設定來使用內建的工具處理 log</li><li><code>outputs</code>：處理完的資料輸出</li></ol></li><li><code>inputs</code>(這邊選擇 <code>Redis</code>) 透過 <code>BLPOP</code> 獲取 log</li><li><code>filter</code> 根據設定來使用內建的工具處理 log</li><li>處理完成後交給 <code>outputs</code> 將處理完的資料輸出(這邊選擇 <code>Elasticsearch</code>)</li></ol></li><li><p>資料寫到 <code>Elasticsearch</code> 後：</p><ol><li>資料寫入索引(<code>index</code>)</li><li>建立資料對應的 <code>Mapping</code> 表</li><li>根據索引(<code>index</code>)選擇的文檔(<code>doc</code>)排序方式去排序</li><li>根據內容建立文檔(<code>doc</code>)的分數(<code>score</code>)，以利快速查詢</li></ol></li><li><p>最後就是 <code>Kibana</code> 上場：</p><ol><li>開始查詢啦！</li></ol></li></ul>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;p&gt;嗯，用了許久的 &lt;code&gt;ELK&lt;/code&gt;，當然除了使用以外還要會建立&lt;/p&gt;
+&lt;p&gt;為了免得之後忘記這陣子的研究，來寫寫一系列的紀錄吧&lt;/p&gt;
+&lt;h2 id=&quot;介紹&quot;&gt;&lt;a href=&quot;#介紹&quot; class=&quot;headerlink&quot; title=&quot;介紹&quot;&gt;&lt;/a&gt;介
+      
+    
     </summary>
     
+      <category term="後端-第三方工具" scheme="https://akoncc.github.io/categories/%E5%BE%8C%E7%AB%AF-%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="ELK-Stack" scheme="https://akoncc.github.io/tags/ELK-Stack/"/>
     
   </entry>
   
