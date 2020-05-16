@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CC的技術隨筆</title>
+  
+  <subtitle>隨著學習的腳步，一同記錄!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://akoncc.github.io/"/>
+  <updated>2020-05-16T05:36:33.701Z</updated>
+  <id>https://akoncc.github.io/</id>
+  
+  <author>
+    <name>akon_cc</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安裝 hexo</title>
+    <link href="https://akoncc.github.io/2020/05/16/hexo-install/"/>
+    <id>https://akoncc.github.io/2020/05/16/hexo-install/</id>
+    <published>2020-05-16T04:03:30.000Z</published>
+    <updated>2020-05-16T05:36:33.701Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Previously"><a href="#Previously" class="headerlink" title="Previously"></a>Previously</h1><p>好久沒寫文章啦，剛好遇到換新電腦</p><p>想想應該要強迫自己培養一邊寫 code、學習，一邊紀錄</p><p>能將當下理解的寫下來，幫助自己也幫助別人</p><p>選擇繼續使用 hexo 來寫作 ~ </p><h1 id="進入正題"><a href="#進入正題" class="headerlink" title="進入正題"></a>進入正題</h1><h2 id="安裝-Node-js"><a href="#安裝-Node-js" class="headerlink" title="安裝 Node.js"></a>安裝 Node.js</h2><p>會使用到npm，所以要先安裝Node.js</p><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官網</a></p><h2 id="安裝-hexo-並且初始化"><a href="#安裝-hexo-並且初始化" class="headerlink" title="安裝 hexo 並且初始化"></a>安裝 hexo 並且初始化</h2><p>安裝 <code>hexo-cli</code></p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure><p>安裝完成後，要先對資料夾做<code>初始化</code>的動作</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進入資料夾</span></span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><p>此時可能會遇到失敗的情形：</p><img src="/2020/05/16/hexo-install/hexo-install-1.png" class="" title="[標題(可有可無)]"><p>因為 powershell 執行原則限制的關係，所以需要修改<br><a href="/_posts/2019-11-01-vscode-cant-run-script.md">參考這篇</a></p><p>解決問題後再執行一次：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 進入資料夾</span></span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><h2 id="運行"><a href="#運行" class="headerlink" title="運行"></a>運行</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 預設為 4000 port</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><img src="/2020/05/16/hexo-install/hexo-install-2.png" class="" title="[標題(可有可無)]"><p>運行結果：</p><img src="/2020/05/16/hexo-install/hexo-install-3.png" class="" title="[標題(可有可無)]"><h2 id="建立、撰寫與發佈文章"><a href="#建立、撰寫與發佈文章" class="headerlink" title="建立、撰寫與發佈文章"></a>建立、撰寫與發佈文章</h2><p>此處的語法是使用 <code>Markdown</code>，網路上有很多的教學資源，就不在此贅述了 ~</p><ul><li>建立新文章</li></ul><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># your-post-name 就是你的文章名</span></span><br><span class="line">hexo new your-post-name</span><br></pre></td></tr></table></figure><ul><li>產生靜態檔</li></ul><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure><ul><li>發佈文章</li></ul><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>不過其實靜態檔跟文章可以一起執行，語法如下：</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先產生靜態檔再發佈</span></span><br><span class="line">hexo g -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先發佈再產生靜態檔</span></span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure><h3 id="補充"><a href="#補充" class="headerlink" title="補充"></a>補充</h3><p>發佈文章的位置，會根據你的 <code>_config.yml</code> 內的 <code>depoly</code> 設定為主：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/your-github-username/your-github-username.io.git</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure><h2 id="接下來就能開始培養好習慣啦"><a href="#接下來就能開始培養好習慣啦" class="headerlink" title="接下來就能開始培養好習慣啦"></a>接下來就能開始培養好習慣啦</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Previously&quot;&gt;&lt;a href=&quot;#Previously&quot; class=&quot;headerlink&quot; title=&quot;Previously&quot;&gt;&lt;/a&gt;Previously&lt;/h1&gt;&lt;p&gt;好久沒寫文章啦，剛好遇到換新電腦&lt;/p&gt;
+&lt;p&gt;想想應該要強迫自己培養一邊寫
+      
+    
+    </summary>
+    
+      <category term="前端-網頁" scheme="https://akoncc.github.io/categories/%E5%89%8D%E7%AB%AF-%E7%B6%B2%E9%A0%81/"/>
+    
+    
+      <category term="hexo" scheme="https://akoncc.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Mongo語法做資料查詢</title>
+    <link href="https://akoncc.github.io/2020/05/16/use-mongo-syntax-to-query/"/>
+    <id>https://akoncc.github.io/2020/05/16/use-mongo-syntax-to-query/</id>
+    <published>2020-05-16T03:37:01.812Z</published>
+    <updated>2020-05-16T03:37:01.812Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近常常遇到要查詢 mongo 內資料的情境<br>來持續做個紀錄<span class="text-nowrap"><i class="fa fa-pencil fa-fw"></i><span class="text-nowrap"><i class="fa fa-pencil fa-fw"></i><span class="text-nowrap"><i class="fa fa-pencil fa-fw"></i>，免得又忘了 </p><h2 id="單一-Key-Value-查詢"><a href="#單一-Key-Value-查詢" class="headerlink" title="單一 Key:Value 查詢"></a>單一 Key:Value 查詢</h2><hr><figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getCollection(<span class="string">'CollectionName'</span>).find(&#123;<span class="symbol">Key:</span>QueryValue&#125;)</span><br></pre></td></tr></table></figure><p>如果是型別是 <code>string</code> 記得要在 Value 加上雙引號<br>如果是 <code>null</code>，可以直接下 <code>null</code> 來查詢</p><h2 id="比較值查詢"><a href="#比較值查詢" class="headerlink" title="比較值查詢"></a>比較值查詢</h2><hr><figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getCollection(<span class="string">'CollectionName'</span>).find(&#123;<span class="symbol">Key:</span>&#123;$ne<span class="symbol">:QueryValue</span>&#125;&#125;)</span><br></pre></td></tr></table></figure><p><code>$ne:</code> 不等於<br><code>$eq:</code> 等於<br><code>$gte:</code> 大於等於<br><code>$lte:</code> 小於等於</p><h2 id="多重條件查詢"><a href="#多重條件查詢" class="headerlink" title="多重條件查詢"></a>多重條件查詢</h2><hr><figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getCollection(<span class="string">'CollectionName'</span>).find(&#123;<span class="symbol">Key:</span>&#123;$ne<span class="symbol">:QueryValue</span>&#125;, <span class="symbol">Key:</span>&#123;$in<span class="symbol">:</span>[<span class="number">123</span>, <span class="number">456</span>]&#125;&#125;)</span><br></pre></td></tr></table></figure><p><code>$in:</code> 同 SQL 的 IN，可包含多個同型別的條件</p><h2 id="查詢的型別為-Array"><a href="#查詢的型別為-Array" class="headerlink" title="查詢的型別為 Array"></a>查詢的型別為 Array</h2><hr><figure class="highlight rb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.getCollection(<span class="string">'CollectionName'</span>).find(&#123;</span><br><span class="line">    <span class="symbol">Key:</span>&#123;$in<span class="symbol">:</span>[<span class="number">123</span>, <span class="number">456</span>]&#125;, </span><br><span class="line">    <span class="symbol">ArrayKey:</span>&#123;$elemMatch<span class="symbol">:</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="symbol">Key:</span>&#123;</span><br><span class="line">            $lte<span class="symbol">:Value1</span>,</span><br><span class="line">            $gte<span class="symbol">:Value2</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p><code>$elemMatch:</code> 找出跟條件相同的資料，裡面可以放入比較值的查詢</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近常常遇到要查詢 mongo 內資料的情境&lt;br&gt;來持續做個紀錄&lt;span class=&quot;text-nowrap&quot;&gt;&lt;i class=&quot;fa fa-pencil fa-fw&quot;&gt;&lt;/i&gt;&lt;span class=&quot;text-nowrap&quot;&gt;&lt;i class=&quot;fa fa-pe
+      
+    
+    </summary>
+    
+      <category term="後端-資料庫" scheme="https://akoncc.github.io/categories/%E5%BE%8C%E7%AB%AF-%E8%B3%87%E6%96%99%E5%BA%AB/"/>
+    
+    
+      <category term="mongo" scheme="https://akoncc.github.io/tags/mongo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>取得今天日期的作法</title>
+    <link href="https://akoncc.github.io/2020/05/16/markdown-get-today/"/>
+    <id>https://akoncc.github.io/2020/05/16/markdown-get-today/</id>
+    <published>2020-05-16T03:37:01.812Z</published>
+    <updated>2020-05-16T03:37:01.812Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>Markdown</code> 取得一篇文章的標籤 <code>date:</code> 的今天日期方式有兩種：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">date: &#39;&#96;r paste(&quot;Updated on&quot;, Sys.Date())&#96;&#39;</span><br><span class="line">or</span><br><span class="line">date: today</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;code&gt;Markdown&lt;/code&gt; 取得一篇文章的標籤 &lt;code&gt;date:&lt;/code&gt; 的今天日期方式有兩種：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;sp
+      
+    
+    </summary>
+    
+      <category term="程式語言" scheme="https://akoncc.github.io/categories/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/"/>
+    
+    
+      <category term="markdown" scheme="https://akoncc.github.io/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VSCode 執行 npm install 失敗</title>
+    <link href="https://akoncc.github.io/2019/11/01/vscode-cant-run-script/"/>
+    <id>https://akoncc.github.io/2019/11/01/vscode-cant-run-script/</id>
+    <published>2019-11-01T06:53:53.000Z</published>
+    <updated>2020-05-16T03:37:01.811Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="情境"><a href="#情境" class="headerlink" title="情境"></a>情境</h2><p>今日要重新將 hexo 裝回電腦上時，遇到一些問題</p><img src="/2019/11/01/vscode-cant-run-script/Image_20191101_14-55-52.png" class="" title="[範例]"><p><code>hexo : 因為這個系統上已停用指令碼執行，所以無法載入 ...</code></p><p>在 vscode 上預設的終端機是 powershell</p><p>所以這問題跟 Windows 預設的 powershell 執行原則有關(預設為 Restricted)</p><p>PowerShell 有四種執行原則：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Restricted：所有 `PowerShell Script`(.ps1) 皆無法執行。(Windows系統預設)</span><br><span class="line">AllSigned：所有 `PowerShell Script` 都要經過受信任的發行者簽屬過後才可執行。</span><br><span class="line">RemoteSigned：針對從異地下載下來的 `PowerShell Script` 需要經過受信任的發行者簽屬過後才可執行，本機的 `PowerShell Script` 可直接執行。</span><br><span class="line">Unrestricted：無限制，所有 `PowerShell Script `皆可執行。</span><br></pre></td></tr></table></figure><p>所以其實只要改變設定就可以了</p><h2 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h2><p>開啟 <code>PowerShell ISE</code></p><img src="/2019/11/01/vscode-cant-run-script/Image_20191101_14-50-58.png" class="" title="[範例]"><p>接著先用下列指令看看目前的執行原則是什麼</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">get-executionpolicy</span></span><br></pre></td></tr></table></figure><img src="/2019/11/01/vscode-cant-run-script/Image_20191101_15-02-00.png" class="" title="[範例]"><p>確定是 <code>Restricted</code> 後，再來輸入以下指令，執行後會有視窗詢問，按下確定後就能將執行原則改為 <code>Remotesigned</code></p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set-executionpolicy</span> remotesigned</span><br></pre></td></tr></table></figure><p><strong>BUT！！！</strong></p><p>凡事都有例外，如果遇到下列情形</p><img src="/2019/11/01/vscode-cant-run-script/Image_20191101_14-51-10.png" class="" title="[範例]"><p>只要將指令改為</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> -Scope CurrentUser RemoteSigned</span><br></pre></td></tr></table></figure><p>就能成功執行囉！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;情境&quot;&gt;&lt;a href=&quot;#情境&quot; class=&quot;headerlink&quot; title=&quot;情境&quot;&gt;&lt;/a&gt;情境&lt;/h2&gt;&lt;p&gt;今日要重新將 hexo 裝回電腦上時，遇到一些問題&lt;/p&gt;
+&lt;img src=&quot;/2019/11/01/vscode-cant-run-sc
+      
+    
+    </summary>
+    
+      <category term="IDE" scheme="https://akoncc.github.io/categories/IDE/"/>
+    
+    
+      <category term="vscode" scheme="https://akoncc.github.io/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>目前在 VSCode 安裝的套件</title>
+    <link href="https://akoncc.github.io/2019/11/01/vscode-install-package/"/>
+    <id>https://akoncc.github.io/2019/11/01/vscode-install-package/</id>
+    <published>2019-11-01T06:19:16.000Z</published>
+    <updated>2020-05-16T03:37:01.812Z</updated>
+    
+    <content type="html"><![CDATA[<p>紀錄一下目前有安裝且有在使用的套件 ~</p><table><thead><tr><th align="center">分類</th><th align="center">套件名</th><th align="left">用途</th><th align="left">安裝網址</th></tr></thead><tbody><tr><td align="center">通用</td><td align="center">Chinese (Traditional) Language Pack for Visual Studio Code</td><td align="left">繁中化</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hant" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">Golang</td><td align="center">Go</td><td align="left">編譯 golang</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">Docker</td><td align="center">Docker</td><td align="left">可撰寫 Dockerfile</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">Json</td><td align="center">Paste JSON as Code</td><td align="left">將 json 格式轉為 class</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">通用</td><td align="center">Beautify</td><td align="left">針對部份的程式語言排版</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">Markdown</td><td align="center">markdownlint</td><td align="left">類似 SonarLint，會讓 md 更好閱讀</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">Markdown</td><td align="center">Markdown All in One</td><td align="left">主要針對排版</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">C#</td><td align="center">C#</td><td align="left">可編譯 dotnet</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">C#</td><td align="center">C# FixFormat</td><td align="left">排版</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=Leopotam.csharpfixformat" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">C#</td><td align="center">C# Snippets</td><td align="left">快速輸入</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=jorgeserrano.vscode-csharp-snippets" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">C#</td><td align="center">C# Extensions</td><td align="left">擴充功能</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions" target="_blank" rel="noopener">Marketplace</a></td></tr><tr><td align="center">SQL</td><td align="center">SQL Beautify</td><td align="left">讓 SQL 語法更好看</td><td align="left"><a href="https://marketplace.visualstudio.com/items?itemName=clarkyu.vscode-sql-beautify" target="_blank" rel="noopener">Marketplace</a></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;紀錄一下目前有安裝且有在使用的套件 ~&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;分類&lt;/th&gt;
+&lt;th align=&quot;center&quot;&gt;套件名&lt;/th&gt;
+&lt;th align=&quot;left&quot;&gt;用途&lt;/th&gt;
+&lt;th align=&quot;l
+      
+    
+    </summary>
+    
+      <category term="IDE" scheme="https://akoncc.github.io/categories/IDE/"/>
+    
+    
+      <category term="vscode" scheme="https://akoncc.github.io/tags/vscode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何找到佔用 port 的程式? (For Windows)</title>
+    <link href="https://akoncc.github.io/2019/10/05/query-windows-port/"/>
+    <id>https://akoncc.github.io/2019/10/05/query-windows-port/</id>
+    <published>2019-10-05T08:29:10.000Z</published>
+    <updated>2020-05-16T03:37:01.811Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今日在使用 <code>kitematic</code> 建立 container 時，發現在重啟 <code>kitematic</code> 之前 container 是能正常運作的，重啟後就無法正常運作，看了 <code>docker logs</code> 發現原來是設定的 port 被占用了！</p><p>雖然可以改另外一個 port 來用，但基於<code>柯南</code>的精神(?)，決定來查找並且解決看看！</p><p>在 windows 上要找到哪個 process 占用 port，其實蠻簡單的，只要兩行指令 + 工作管理員 ~</p><p>(假設被佔用了 32774) 開啟 <code>cmd.exe</code>，輸入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | findstr 0.0:32774</span><br></pre></td></tr></table></figure><p>會得到以下結果</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TCP    0.0.0.0:32774          0.0.0.0:0              LISTENING       5220</span><br></pre></td></tr></table></figure><p>那個 <code>5220</code> 就代表 PID ~</p><p>再輸入另一個指令查詢這個 PID 是哪知 process：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist | findstr 5520</span><br></pre></td></tr></table></figure><p>會得到以下結果：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">com.docker.backend.exe        5220 Services                   0     14,444 K</span><br></pre></td></tr></table></figure><p>第一個就代表是哪個 process 拉<del>~</del>再來開啟工作管理員就能關閉他了！</p><p>或是輸入指令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill &#x2F;F &#x2F;PID 5520</span><br></pre></td></tr></table></figure><p>再次啟動 container，正常！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;今日在使用 &lt;code&gt;kitematic&lt;/code&gt; 建立 container 時，發現在重啟 &lt;code&gt;kitematic&lt;/cod
+      
+    
+    </summary>
+    
+      <category term="後端-網路" scheme="https://akoncc.github.io/categories/%E5%BE%8C%E7%AB%AF-%E7%B6%B2%E8%B7%AF/"/>
+    
+    
+      <category term="windows" scheme="https://akoncc.github.io/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>建立 ngrok</title>
+    <link href="https://akoncc.github.io/2019/10/03/create-ngrok/"/>
+    <id>https://akoncc.github.io/2019/10/03/create-ngrok/</id>
+    <published>2019-10-03T09:28:46.000Z</published>
+    <updated>2020-05-16T03:37:01.810Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>有個有趣的需求，需要與其他RD整合 web 的部分</p><p>但因為自己在本機 localhost 測試方便，沒辦法轉出去給其他人連進來</p><p>朋友推薦使用 <code>ngrok</code>，非常簡單，功能強大<del>~</del></p><h2 id="以-Windows-當範例"><a href="#以-Windows-當範例" class="headerlink" title="以 Windows 當範例"></a>以 Windows 當範例</h2><ul><li>官方寫得很詳細<a href="https://dashboard.ngrok.com/get-started" target="_blank" rel="noopener">官方教學</a></li></ul><ol><li><p>首先去官網註冊帳號，註冊完成後登入，會在左邊的列表看到 <code>Auth</code>，點進去會看到右邊有自己的 <code>Authtoken</code>，以及下面的指令複製起來</p><img src="/2019/10/03/create-ngrok/Image-20191003-174956-2.png" class=""></li><li><p>再來抓執行檔 <a href="https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip" target="_blank" rel="noopener">連結</a></p></li><li><p>解壓縮後，開啟 <code>powershell</code></p></li><li><p>貼上剛剛複製的 authtoken 的指令 <code>./ngrok authtoken xxxxxxx</code></p></li><li><p>輸入指令，<code>./ngrok http 80</code>，就能開啟來囉！</p></li></ol><p>是不是超級簡單!!!</p><p>還可以設定 subdomain 的指令</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ngrok http 80 -subdomain yoursubdomain</span><br><span class="line">不過這好像要付費才能使用~</span><br></pre></td></tr></table></figure><ul><li><a href="https://clouding.city/tool/ngrok/" target="_blank" rel="noopener">大大的教學</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;有個有趣的需求，需要與其他RD整合 web 的部分&lt;/p&gt;
+&lt;p&gt;但因為自己在本機 localhost 測試方便，沒辦法轉出去給其他人連進來
+      
+    
+    </summary>
+    
+      <category term="後端-網路" scheme="https://akoncc.github.io/categories/%E5%BE%8C%E7%AB%AF-%E7%B6%B2%E8%B7%AF/"/>
+    
+    
+      <category term="ngrok" scheme="https://akoncc.github.io/tags/ngrok/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>建立 Gitea</title>
+    <link href="https://akoncc.github.io/2019/10/03/create-gitea/"/>
+    <id>https://akoncc.github.io/2019/10/03/create-gitea/</id>
+    <published>2019-10-03T09:11:52.000Z</published>
+    <updated>2020-05-16T03:37:01.809Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="緣由"><a href="#緣由" class="headerlink" title="緣由"></a>緣由</h2><p>今天打算將了解的流程寫入 github，但後來想想覺得不妥</p><p>找了 gitlab, gogs 等等</p><p>後來找到別人推薦的 gitea，為什麼選擇他呢，一個原因是習慣用 gogs 了，另外一個是..以下有個比較圖<br><a href="https://docs.gitea.io/zh-tw/comparison/" target="_blank" rel="noopener">Gitea compared to other Git hosting options</a></p><p>其實他就是個用 golang 寫的 gogs，也能讓我用 container 啟動！</p><h2 id="開始建置"><a href="#開始建置" class="headerlink" title="開始建置"></a>開始建置</h2><p>非常簡單，可以下指令來跑容器，也能用 kitematic 來安裝 ~</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull gitea&#x2F;gitea:latest</span><br><span class="line">docker run -d --name&#x3D;gitea -p 10022:22 -p 10080:3000 -v &#x2F;var&#x2F;lib&#x2F;gitea:&#x2F;data gitea&#x2F;gitea:latest</span><br></pre></td></tr></table></figure><p><code>記得要 volumn，否則資料就會消失惹！</code></p><p>官方的教學：<a href="https://docs.gitea.io/zh-tw/install-with-docker/" target="_blank" rel="noopener">install-with-docker</a></p><p>這樣就跑起來啦！<a href="https://try.gitea.io/" target="_blank" rel="noopener">官方範例</a></p><img src="/2019/10/03/create-gitea/Image-20191003-171934-1.png" class="" title="[範例]">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;緣由&quot;&gt;&lt;a href=&quot;#緣由&quot; class=&quot;headerlink&quot; title=&quot;緣由&quot;&gt;&lt;/a&gt;緣由&lt;/h2&gt;&lt;p&gt;今天打算將了解的流程寫入 github，但後來想想覺得不妥&lt;/p&gt;
+&lt;p&gt;找了 gitlab, gogs 等等&lt;/p&gt;
+&lt;p&gt;後來找到別人推
+      
+    
+    </summary>
+    
+      <category term="後端-容器" scheme="https://akoncc.github.io/categories/%E5%BE%8C%E7%AB%AF-%E5%AE%B9%E5%99%A8/"/>
+    
+    
+      <category term="git" scheme="https://akoncc.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 hexo 內正確顯示圖片</title>
+    <link href="https://akoncc.github.io/2019/09/12/hexo-display-images/"/>
+    <id>https://akoncc.github.io/2019/09/12/hexo-display-images/</id>
+    <published>2019-09-11T17:22:23.000Z</published>
+    <updated>2020-05-16T03:37:01.809Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="情境"><a href="#情境" class="headerlink" title="情境"></a>情境</h1><p>今兒個一直覺得為什麼圖片沒有辦法正常顯示哩?</p><p>使用 <code>markdown</code> 本身的圖片語法在 <code>VSCode preview</code> 是沒問題的呀，但 deploy 到網站上之後，卻沒有正常顯示圖片，怪怪！</p><p>不過，其實從圖片的網址以及 github 上的資料夾結構就能看出一二，再加上請出 Google大神，一查之下才知道，原來要在 hexo 上正確顯示圖片，有三種方式：</p><h2 id="絕對路徑"><a href="#絕對路徑" class="headerlink" title="絕對路徑"></a>絕對路徑</h2><ul><li>使用 <code>markdown</code> 的圖片語法是得將圖片放在 source/圖片路徑，才能在 hexo 上正確顯示。</li></ul><p>這是什麼意思呢，就是說 source/_posts 底下是相對路徑，無法直接寫 <code>![](圖檔)</code> 來顯示，而是要寫 <code>![](/圖片路徑/圖檔)</code>，使用 <code>根目錄 /</code> ( = source這一層) + source/圖片路徑 的 <code>圖片路徑</code>，才能正確顯示。</p><h2 id="相對路徑"><a href="#相對路徑" class="headerlink" title="相對路徑"></a>相對路徑</h2><ul><li>調整設定 <code>_config.yml</code> 內的 <code>post_asset_folder : true</code>，讓 hexo 能使用相對路徑取得圖檔，配合 <code></code> 的語法，再把圖檔放在 <code>source/_posts/post-name/</code> 底下就能正常顯示。</li></ul><p>這是什麼意思呢，就是說當設定是 <code>true</code> 時，<code>hexo new post-name</code> 產生新文章的同時，hexo 會自動在<code>source/_posts/</code> 底下產生 <code>post-name</code> 的資料夾，並且使用語法讓文章可以引用資源。</p><p>目前有三種資源可以使用：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">--- 沒用過</span><br><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">--- 載入圖片資源  </span><br><span class="line">&#123;% asset_img 圖檔 [標題(可有可無)] %&#125;</span><br><span class="line">--- 沒用過</span><br><span class="line">&#123;% asset_link slug [標題(可有可無)] %&#125;</span><br></pre></td></tr></table></figure><h2 id="外部圖片空間"><a href="#外部圖片空間" class="headerlink" title="外部圖片空間"></a>外部圖片空間</h2><ul><li>除了本地的檔案，也可以使用一些免費的圖片空間，當上傳圖片後，會獲得一串網址，再將那串網址放到文章內，就能顯示了</li></ul><p>這部分不打算嘗試，所以就不測試囉！</p><h1 id="結論"><a href="#結論" class="headerlink" title="結論"></a>結論</h1><p>圖片是文章的一部分的靈魂，只有顯示叉燒包而沒有顯示圖，會讓人一直覺得焦慮呀 <code>XDDD</code></p><p>又學了一些，讚讚</p><h1 id="參考連結"><a href="#參考連結" class="headerlink" title="參考連結"></a>參考連結</h1><ul><li><a href="https://hexo.io/zh-tw/docs/asset-folders" target="_blank" rel="noopener">官網</a></li><li><a href="https://yanyinhong.github.io/2017/05/02/How-to-insert-image-in-hexo-post/" target="_blank" rel="noopener">大神</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;情境&quot;&gt;&lt;a href=&quot;#情境&quot; class=&quot;headerlink&quot; title=&quot;情境&quot;&gt;&lt;/a&gt;情境&lt;/h1&gt;&lt;p&gt;今兒個一直覺得為什麼圖片沒有辦法正常顯示哩?&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;markdown&lt;/code&gt; 本身的圖片語法在 &lt;code&gt;
+      
+    
+    </summary>
+    
+      <category term="前端-網頁" scheme="https://akoncc.github.io/categories/%E5%89%8D%E7%AB%AF-%E7%B6%B2%E9%A0%81/"/>
+    
+    
+      <category term="hexo" scheme="https://akoncc.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rancher add host 無法新增成功</title>
+    <link href="https://akoncc.github.io/2019/09/11/rancher/"/>
+    <id>https://akoncc.github.io/2019/09/11/rancher/</id>
+    <published>2019-09-10T16:20:11.000Z</published>
+    <updated>2020-05-16T03:37:01.809Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近因為有 GCP Cloud 做 linux vm 快照的需求<br>發現如果是用這種方式 clone vm，在 Rancher add host 時，healthcheck 會出現失敗(紅色驚嘆號)。</p><p>舉例來說，有 A B 兩台 vm，A add host 成功，但 B 出現上面描述的錯誤<br>此時需要在 B 執行以下的指令 (不是 <code>root</code> 的話需要在每個指令前面增加 <code>sudo</code>)</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/lib/rancher/state; docker rm -fv rancher-agent; docker rm -fv rancher-agent-state</span><br></pre></td></tr></table></figure><p>執行完成再去 add host ㄧ次，就成功了！ XD</p><p>參考 <a href="https://docs.xtplayer.cn/rancher/faqs/agents/" target="_blank" rel="noopener">官方問題</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近因為有 GCP Cloud 做 linux vm 快照的需求&lt;br&gt;發現如果是用這種方式 clone vm，在 Rancher add host 時，healthcheck 會出現失敗(紅色驚嘆號)。&lt;/p&gt;
+&lt;p&gt;舉例來說，有 A B 兩台 vm，A add host
+      
+    
+    </summary>
+    
+      <category term="後端-容器" scheme="https://akoncc.github.io/categories/%E5%BE%8C%E7%AB%AF-%E5%AE%B9%E5%99%A8/"/>
+    
+    
+      <category term="rancher" scheme="https://akoncc.github.io/tags/rancher/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kitematic - 初探(1)</title>
+    <link href="https://akoncc.github.io/2019/09/06/docker/"/>
+    <id>https://akoncc.github.io/2019/09/06/docker/</id>
+    <published>2019-09-06T15:58:58.000Z</published>
+    <updated>2020-05-16T03:37:01.808Z</updated>
+    
+    <content type="html"><![CDATA[<p><code>kitematic</code> 實在超好用阿<del>~</del><br>可是，這次踩了一個雷…</p><p>就是官方的 docker destop 附帶轉到官方下載 <code>kitematic</code> 的版本是有問題的 (傻眼)</p><p>會出現以下的錯誤: <code>context canceled</code></p><img src="/2019/09/06/docker/issue1.png" class=""><h3 id="解決方法"><a href="#解決方法" class="headerlink" title="解決方法"></a>解決方法</h3><ol><li>將原本安裝的 <code>kitematic</code> 移除</li><li>到官方的 <a href="https://github.com/docker/kitematic" target="_blank" rel="noopener">github</a> 去下載正確的版本</li><li>解壓縮後，將資料夾丟到 docker 提示的路徑</li><li>完成！開始享受吧</li></ol><p>找到這篇解答，非常感謝</p><blockquote><p><a href="https://www.jianshu.com/p/fd651ba3ec6e" target="_blank" rel="noopener">https://www.jianshu.com/p/fd651ba3ec6e</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;code&gt;kitematic&lt;/code&gt; 實在超好用阿&lt;del&gt;~&lt;/del&gt;&lt;br&gt;可是，這次踩了一個雷…&lt;/p&gt;
+&lt;p&gt;就是官方的 docker destop 附帶轉到官方下載 &lt;code&gt;kitematic&lt;/code&gt; 的版本是有問題的 (傻眼)&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="後端-容器" scheme="https://akoncc.github.io/categories/%E5%BE%8C%E7%AB%AF-%E5%AE%B9%E5%99%A8/"/>
+    
+    
+      <category term="docker" scheme="https://akoncc.github.io/tags/docker/"/>
+    
+  </entry>
+  
+</feed>
